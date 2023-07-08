@@ -65,69 +65,77 @@ class _SnakeAndLaddersState extends State<SnakeAndLadders> {
       appBar: AppBar(
         title: Text('Snake and Ladders'),
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text(
-            'Player 1 Position: ${playerPositions[0]}',
-            style: TextStyle(fontSize: 20),
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('assets/images/board_bg.png'),
+            fit: BoxFit.fill,
           ),
-          SizedBox(height: 10),
-          Text(
-            'Player 2 Position: ${playerPositions[1]}',
-            style: TextStyle(fontSize: 20),
-          ),
-          SizedBox(height: 20),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Column(
-                children: [
-                  Text(
-                    'Player 1 Dice Value:',
-                    style: TextStyle(fontSize: 20),
-                  ),
-                  SizedBox(height: 10),
-                  Image.asset(
-                    'assets/images/dice${diceValues[0]}.png',
-                    width: 80,
-                    height: 80,
-                  ),
-                ],
-              ),
-              Column(
-                children: [
-                  Text(
-                    'Player 2 Dice Value:',
-                    style: TextStyle(fontSize: 20),
-                  ),
-                  SizedBox(height: 10),
-                  Image.asset(
-                    'assets/images/dice${diceValues[1]}.png',
-                    width: 80,
-                    height: 80,
-                  ),
-                ],
-              ),
-            ],
-          ),
-          SizedBox(height: 20),
-          if (isGameOver)
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
             Text(
-              'Congratulations! Player $currentPlayer won!',
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              'Player 1 Position: ${playerPositions[0]}',
+              style: TextStyle(fontSize: 20),
             ),
-          if (!isGameOver)
+            SizedBox(height: 10),
+            Text(
+              'Player 2 Position: ${playerPositions[1]}',
+              style: TextStyle(fontSize: 20),
+            ),
+            SizedBox(height: 20),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Column(
+                  children: [
+                    Text(
+                      'Player 1 Dice Value:',
+                      style: TextStyle(fontSize: 20),
+                    ),
+                    SizedBox(height: 10),
+                    Image.asset(
+                      'assets/images/dice${diceValues[0]}.png',
+                      width: 80,
+                      height: 80,
+                    ),
+                  ],
+                ),
+                Column(
+                  children: [
+                    Text(
+                      'Player 2 Dice Value:',
+                      style: TextStyle(fontSize: 20),
+                    ),
+                    SizedBox(height: 10),
+                    Image.asset(
+                      'assets/images/dice${diceValues[1]}.png',
+                      width: 80,
+                      height: 80,
+                    ),
+                  ],
+                ),
+              ],
+            ),
+            SizedBox(height: 20),
+            if (isGameOver)
+              Text(
+                'Congratulations! Player $currentPlayer won!',
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              ),
+            if (!isGameOver)
+              ElevatedButton(
+                onPressed: rollDice,
+                child: Text('Roll Dice (Player $currentPlayer)'),
+              ),
+            SizedBox(height: 20),
             ElevatedButton(
-              onPressed: rollDice,
-              child: Text('Roll Dice (Player $currentPlayer)'),
+              onPressed: resetGame,
+              child: Text('Reset Game'),
             ),
-          SizedBox(height: 20),
-          ElevatedButton(
-            onPressed: resetGame,
-            child: Text('Reset Game'),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
