@@ -3,7 +3,7 @@ import 'dart:math';
 
 void main() {
   runApp(MaterialApp(
-    debugShowCheckedModeBanner: true,
+    debugShowCheckedModeBanner: false,
     home: SnakeAndLadders(),
   ));
 }
