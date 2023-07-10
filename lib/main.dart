@@ -16,9 +16,9 @@ class SnakeAndLadders extends StatefulWidget {
 class _SnakeAndLaddersState extends State<SnakeAndLadders> {
   static final int boardSize = 10;
   static final int maxDiceValue = 6;
-  List<int> snakePositions = [16, 47, 49, 56, 62, 64, 87, 93, 95, 98];
+  List<int> snakePositions = [16, 47, 49, 56, 62, 64, 87, 93, 94, 98];
   List<int> ladderStarts = [1, 4, 9, 21, 28, 36, 51, 71, 80];
-  List<int> ladderEnds = [38, 14, 31, 42, 84, 44, 67, 91, 100];
+  List<int> ladderEnds = [38, 14, 31, 42, 84, 44, 67, 92, 100];
 
   int currentPlayer = 1;
   List<int> playerPositions = [1, 1];
